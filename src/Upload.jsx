@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
@@ -32,7 +31,7 @@ const Upload = ({ classes }) => (
         <CardContent>
           <div className={classes.border}>
             <Typography type="headline" component="h2" className={classes.borderText}>
-              Drop an image here to upload it to IPFS
+              Drop an image here to upload it to the IPFS
             </Typography>
           </div>
         </CardContent>
