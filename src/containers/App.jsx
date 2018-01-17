@@ -8,9 +8,14 @@ import Footer from '../components/Footer';
 require('typeface-roboto');
 
 class App extends Component {
+  foo() {
+    return (this.props);
+  }
+
   render() {
+    const foo = 'bar';
     return (
-      <div className="App">
+      <div className="App" foo={foo}>
         <Header />
         <div
           style={{ padding: 12, marginTop: 64 }}
