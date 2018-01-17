@@ -39,6 +39,13 @@ const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
+ * Get max upload file size from environment and store in Express.
+ */
+
+const fileSize = process.env.FILESIZE || 4194000;
+app.set('fileSize', fileSize);
+
+/**
  * Event listener for HTTP server "error" event.
  */
 
