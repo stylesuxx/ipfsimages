@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
-import Upload from './Upload';
-import Cards from './Cards';
-import Footer from './Footer';
+import Header from '../components/Header';
+import Upload from '../components/Upload';
+import Cards from '../components/Cards';
+import Footer from '../components/Footer';
 
 require('typeface-roboto');
 
