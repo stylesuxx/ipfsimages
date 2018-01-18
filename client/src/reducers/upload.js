@@ -7,7 +7,6 @@ import {
 
 const defaultState = {
   disabled: false,
-  hash: null,
   error: null,
 };
 
@@ -18,7 +17,6 @@ const upload = (state = defaultState, action) => {
 
       next.disabled = true;
       next.error = null;
-      next.hash = null;
 
       return next;
     }
@@ -28,7 +26,6 @@ const upload = (state = defaultState, action) => {
 
       next.error = action.error;
       next.disabled = true;
-      next.hash = null;
 
       return next;
     }
@@ -42,8 +39,10 @@ const upload = (state = defaultState, action) => {
     }
 
     case UPLOAD_SUCCESS: {
-      console.log('UPLOAD_SUCCESS', action);
       const next = Object.assign({}, state);
+
+      next.disabled = false;
+      next.error = null;
 
       return next;
     }
