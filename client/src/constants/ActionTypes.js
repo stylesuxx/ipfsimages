@@ -1,3 +1,4 @@
 export const UPLOAD = 'UPLOAD';
-export const UPLOAD_DONE = 'UPLOAD_DONE';
-export const UPLOAD_ERROR = 'UPLOAD_DONE';
+export const UPLOAD_ERROR = 'UPLOAD_ERROR';
+export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
+export const UPLOAD_CLEAR_ERROR = 'UPLOAD_CLEAR_ERROR';

@@ -19,30 +19,48 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ classes }) => (
-  <AppBar postition="static" color="default">
-    <Toolbar>
-      <Typography type="title" color="inherit" className={classes.flex}>
-       IPFS Image Upload
-      </Typography>
-      <input
-        accept="image/*"
-        className={classes.input}
-        id="raised-button-file"
-        multiple
-        type="file"
-      />
-      <label htmlFor="raised-button-file">
-        <Button raised component="span" className={classes.button}>
-          Upload Image
-        </Button>
-      </label>
-    </Toolbar>
-  </AppBar>
-);
+const Header = ({ classes, disabled, postUpload }) => {
+  function handleUpload(files) {
+    postUpload(files[0]);
+  }
+
+  return (
+    <AppBar postition="static" color="default">
+      <Toolbar>
+        <Typography type="title" color="inherit" className={classes.flex}>
+         IPFS Image Upload
+        </Typography>
+        <input
+          accept="image/*"
+          className={classes.input}
+          id="raised-button-file"
+          type="file"
+          onChange={e => handleUpload(e.target.files)}
+          disabled={disabled}
+        />
+        <label htmlFor="raised-button-file">
+          <Button
+            raised
+            component="span"
+            className={classes.button}
+            disabled={disabled}
+          >
+            Upload Image
+          </Button>
+        </label>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+Header.defaultProps = {
+
+};
 
 Header.propTypes = {
   classes: PropTypes.shape().isRequired,
+  disabled: PropTypes.bool.isRequired,
+  postUpload: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

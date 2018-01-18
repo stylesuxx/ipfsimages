@@ -13,9 +13,6 @@ import easyLogo from '../images/easy-logo.png';
 import githubLogo from '../images/github-logo.png';
 
 const styles = () => ({
-  flex: {
-    flex: 1,
-  },
   fullHeight: {
     height: '100%',
     display: 'flex',
@@ -45,7 +42,7 @@ const styles = () => ({
 
 const Cards = ({ classes }) => (
   <Grid container spacing={24}>
-    <Grid item xs={12} md={4} className={classes.flex}>
+    <Grid item xs={12} md={4}>
       <Card className={classes.fullHeight}>
         <CardMedia
           className={classes.ipfsLogo}
@@ -70,7 +67,7 @@ const Cards = ({ classes }) => (
         </CardActions>
       </Card>
     </Grid>
-    <Grid item xs={12} md={4} className={classes.flex}>
+    <Grid item xs={12} md={4}>
       <Card className={classes.fullHeight}>
         <div className={classes.githubBackground}>
           <CardMedia
@@ -94,7 +91,7 @@ const Cards = ({ classes }) => (
         </CardActions>
       </Card>
     </Grid>
-    <Grid item xs={12} md={4} className={classes.flex}>
+    <Grid item xs={12} md={4}>
       <Card className={classes.fullHeight}>
         <div className={classes.easyBackground}>
           <CardMedia

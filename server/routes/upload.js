@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(422).json({
-      error: 'File needs to be provided',
+      error: 'File needs to be provided.',
     });
   }
 
@@ -18,7 +18,7 @@ router.post('/', upload.single('file'), (req, res) => {
     fs.unlink(req.file.path);
 
     return res.status(422).json({
-      error: 'File needs to be an image',
+      error: 'File needs to be an image.',
     });
   }
 
@@ -28,7 +28,7 @@ router.post('/', upload.single('file'), (req, res) => {
     fs.unlink(req.file.path);
 
     return res.status(422).json({
-      error: `Image needs to be smaller than ${maxSize}bytes`,
+      error: `Image needs to be smaller than ${maxSize} bytes.`,
     });
   }
 
