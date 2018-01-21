@@ -106,9 +106,9 @@ const Cards = ({ classes }) => (
           </Typography>
           <Typography component="p">
             <em>No registration is required</em>, simply select the file from
-            &nbsp;your computer and upload it. You will get a link to access
-            &nbsp;your image from anywhere or <em>share it</em> with your
-            &nbsp;friends. A local history of your Uploads will be saved for
+            your computer and upload it. You will get a link to access
+            your image from anywhere or <em>share it</em> with your
+            friends. A local history of your Uploads will be saved for
             convencience - you can clear it any time.
           </Typography>
         </CardContent>

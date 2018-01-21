@@ -35,7 +35,11 @@ const styles = () => ({
   },
 });
 
-const Upload = ({ classes, error, clearError }) => {
+const Upload = ({
+  classes,
+  error,
+  clearError,
+}) => {
   const open = (error != null);
 
   return (
@@ -79,8 +83,8 @@ Upload.defaultProps = {
 
 Upload.propTypes = {
   classes: PropTypes.shape().isRequired,
-  error: PropTypes.string,
   clearError: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 export default withStyles(styles)(Upload);

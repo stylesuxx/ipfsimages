@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import History from '../components/History';
 import Header from '../components/Header';
 import Upload from '../components/Upload';
-import Cards from '../components/Cards';
 import Footer from '../components/Footer';
+import Cards from '../components/Cards';
 
 import * as appActions from '../actions/';
 
 require('typeface-roboto');
 
-const App = ({ upload, actions }) => (
+const App = ({ upload, history, actions }) => (
   <div className="App">
     <Header
       disabled={upload.disabled}
@@ -26,6 +27,9 @@ const App = ({ upload, actions }) => (
         error={upload.error}
         clearError={actions.clearError}
       />
+      <History
+        history={history.items}
+      />
       <Cards />
       <Footer />
     </div>
@@ -37,6 +41,12 @@ App.propTypes = {
     disabled: PropTypes.bool.isRequired,
     error: PropTypes.string,
   }).isRequired,
+  history: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      hash: PropTypes.string.isRequired,
+    })).isRequired,
+  }).isRequired,
   actions: PropTypes.shape({
     postUpload: PropTypes.func.isRequired,
     clearError: PropTypes.func.isRequired,
@@ -45,6 +55,7 @@ App.propTypes = {
 
 const mapStateToProps = state => ({
   upload: state.upload,
+  history: state.history,
 });
 
 const mapDispatchToProps = dispatch => ({
