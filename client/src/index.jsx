@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddlware from 'redux-thunk';
+import { load, save } from 'redux-localstorage-simple';
 import { compose, createStore, applyMiddleware } from 'redux';
 
 import './index.css';
@@ -11,8 +12,11 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(
   IpfsFileUpload,
-  undefined,
-  compose(applyMiddleware(thunkMiddlware)),
+  load({ states: ['history'] }),
+  compose(
+    applyMiddleware(thunkMiddlware),
+    applyMiddleware(save({ states: ['history'] })),
+  ),
 );
 
 ReactDOM.render(

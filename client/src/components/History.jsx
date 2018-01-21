@@ -74,9 +74,9 @@ const History = ({
   history,
 }) => {
   const historyItem = (hash, date, time, url) => (
-    <Grid container spacing={24}>
+    <Grid container spacing={24} key={hash}>
       <Grid item xs={12}>
-        <Card key={hash} className={classes.content}>
+        <Card className={classes.content}>
           <CardMedia
             className={classes.image}
             image={url}
@@ -133,10 +133,8 @@ const History = ({
     </Grid>
   );
   const historyItems = history.map((item) => {
-    const date = `${item.date.getFullYear()}/${item.date.getMonth() + 1}/${item.date.getDate()}`;
-    const time = `${item.date.getHours()}:${item.date.getMinutes() < 10 ? '0' : ''}${item.date.getMinutes()}:${item.date.getSeconds() < 10 ? '0' : ''}${item.date.getSeconds()}`;
-    const url = 'http://www.slidesjs.com/img/example-slide-350-1.jpg';
-    return historyItem(item.hash, date, time, url);
+    const url = `https://ipfs.io/ipfs/${item.hash}`;
+    return historyItem(item.hash, item.date, item.time, url);
   });
 
   return (
@@ -149,7 +147,8 @@ const History = ({
 History.propTypes = {
   classes: PropTypes.shape().isRequired,
   history: PropTypes.arrayOf(PropTypes.shape({
-    date: PropTypes.instanceOf(Date).isRequired,
+    date: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
     hash: PropTypes.string.isRequired,
   })).isRequired,
 };

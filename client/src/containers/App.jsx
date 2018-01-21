@@ -43,7 +43,8 @@ App.propTypes = {
   }).isRequired,
   history: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({
-      date: PropTypes.instanceOf(Date).isRequired,
+      date: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
       hash: PropTypes.string.isRequired,
     })).isRequired,
   }).isRequired,
