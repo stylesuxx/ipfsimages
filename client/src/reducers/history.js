@@ -5,6 +5,7 @@ import {
 
 const defaultState = {
   items: [
+    /*
     {
       date: '2018/1/1',
       time: '10:10:10',
@@ -15,6 +16,7 @@ const defaultState = {
       time: '10:10:09',
       hash: 'QmZpc3HvfjEXvLWGQPWbHk3AjD5j8NEN4gmFN8Jmrd5g83/cs/alan.jpg',
     },
+    */
   ],
 };
 
@@ -24,6 +26,7 @@ const history = (state = defaultState, action) => {
       const next = Object.assign({}, state);
       const current = new Date();
       const date = `${current.getFullYear()}/${current.getMonth() + 1}/${current.getDate()}`;
+      /* istanbul ignore next */
       const time = `${current.getHours()}:${current.getMinutes() < 10 ? '0' : ''}${current.getMinutes()}:${current.getSeconds() < 10 ? '0' : ''}${current.getSeconds()}`;
 
       const upload = {
