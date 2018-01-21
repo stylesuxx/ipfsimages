@@ -20,55 +20,57 @@ const historyItems = [
 ];
 const historyEmpty = [];
 
-it('renders without crashing', () => {
-  shallow((
-    <History
-      clear={() => false}
-      history={historyItems}
-    />
-  ));
-});
+describe('History component', () => {
+  it('renders without crashing', () => {
+    shallow((
+      <History
+        clear={() => false}
+        history={historyItems}
+      />
+    ));
+  });
 
-it('has no "Clear Upload History" button with no uploads', () => {
-  const history = shallow((
-    <History
-      clear={() => false}
-      history={historyEmpty}
-    />
-  ));
+  it('has no "Clear Upload History" button with no uploads', () => {
+    const history = shallow((
+      <History
+        clear={() => false}
+        history={historyEmpty}
+      />
+    ));
 
-  expect(history.dive().find(Button)).toHaveLength(0);
-});
+    expect(history.dive().find(Button)).toHaveLength(0);
+  });
 
-it('has "Clear Upload History" button with uploads', () => {
-  const history = shallow((
-    <History
-      clear={() => false}
-      history={historyItems}
-    />
-  ));
+  it('has "Clear Upload History" button with uploads', () => {
+    const history = shallow((
+      <History
+        clear={() => false}
+        history={historyItems}
+      />
+    ));
 
-  expect(history.dive().find(Button)).toHaveLength(1);
-});
+    expect(history.dive().find(Button)).toHaveLength(1);
+  });
 
-it('has Card items with uploads', () => {
-  const history = shallow((
-    <History
-      clear={() => false}
-      history={historyItems}
-    />
-  ));
+  it('has Card items with uploads', () => {
+    const history = shallow((
+      <History
+        clear={() => false}
+        history={historyItems}
+      />
+    ));
 
-  expect(history.dive().find(Card)).toHaveLength(historyItems.length);
-});
+    expect(history.dive().find(Card)).toHaveLength(historyItems.length);
+  });
 
-it('has no Card items with empty uploads', () => {
-  const history = shallow((
-    <History
-      clear={() => false}
-      history={historyEmpty}
-    />
-  ));
+  it('has no Card items with empty uploads', () => {
+    const history = shallow((
+      <History
+        clear={() => false}
+        history={historyEmpty}
+      />
+    ));
 
-  expect(history.dive().find(Card)).toHaveLength(historyEmpty.length);
+    expect(history.dive().find(Card)).toHaveLength(historyEmpty.length);
+  });
 });
