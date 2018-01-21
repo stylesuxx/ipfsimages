@@ -9,5 +9,6 @@
     "it": true,
     "expect": true,
     "describe": true,
+    "afterEach": true,
   }
 }

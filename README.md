@@ -16,3 +16,12 @@ To start the server on Port 5000, simply run:
 To install the dependencies use yarn and run:
 
 '''yarn install'''
+
+## Testing
+To run all the tests, including Coverage, run:
+
+'''yarn run test --coverage'''
+
+To run the test watcher, witch will also invoke on file change run:
+
+'''yarn run test'''

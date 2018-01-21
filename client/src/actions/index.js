@@ -28,7 +28,7 @@ export const postUpload = file =>
     const formData = new FormData();
     formData.append('file', file);
 
-    fetch('http://localhost:5000/upload', {
+    return fetch('http://localhost:5000/upload', {
       method: 'post',
       contentType: false,
       processData: false,
@@ -36,15 +36,11 @@ export const postUpload = file =>
     })
       .then(response => response.json())
       .then((json) => {
-        if (json) {
-          if (json.error) {
-            return dispatch(uploadError(json.error));
-          }
-
-          return dispatch(uploadSuccess(json.hash));
+        if (json.error) {
+          return dispatch(uploadError(json.error));
         }
 
-        return dispatch(uploadError('Response malformatted'));
+        return dispatch(uploadSuccess(json.hash));
       })
       .catch(error => dispatch(uploadError(error.stack)));
   };

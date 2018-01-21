@@ -1,3 +1,7 @@
+import configureMockStore from 'redux-mock-store';
+import fetchMock from 'fetch-mock';
+import thunk from 'redux-thunk';
+
 import * as actions from '../../actions';
 import * as types from '../../constants/ActionTypes';
 
@@ -45,5 +49,112 @@ describe('actions', () => {
     };
 
     expect(actions.clearHistory()).toEqual(expectedAction);
+  });
+});
+
+const middleware = [thunk];
+const mockStore = configureMockStore(middleware);
+describe('async actions', () => {
+  afterEach(() => {
+    fetchMock.reset();
+    fetchMock.restore();
+  });
+
+  it('creates UPLOAD_SUCCESS after uploading valid image', () => {
+    fetchMock.postOnce('http://localhost:5000/upload', {
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: {
+        hash: '1234567890abcdef',
+      },
+    });
+
+    const expectedActions = [
+      {
+        type: types.UPLOAD,
+      },
+      {
+        type: types.UPLOAD_SUCCESS,
+        hash: '1234567890abcdef',
+      },
+    ];
+
+    const store = mockStore({
+      history: {
+        items: [],
+      },
+    });
+
+    return store.dispatch(actions.postUpload({}))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('creates UPLOAD_ERROR after uploading invalid file', () => {
+    const error = 'Error message';
+    fetchMock.postOnce('http://localhost:5000/upload', {
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: {
+        error,
+      },
+    });
+
+    const expectedActions = [
+      {
+        type: types.UPLOAD,
+      },
+      {
+        type: types.UPLOAD_ERROR,
+        error,
+      },
+    ];
+
+    const store = mockStore({
+      history: {
+        items: [],
+      },
+    });
+
+    return store.dispatch(actions.postUpload({}))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('creates UPLOAD_ERROR after uploading did not return json', () => {
+    const error = 'FetchError: invalid json response body';
+    fetchMock.postOnce('http://localhost:5000/upload', {
+      headers: {
+        'content-type': 'application/text',
+      },
+      body: '',
+    });
+
+    const expectedActions = [
+      {
+        type: types.UPLOAD,
+      },
+      {
+        type: types.UPLOAD_ERROR,
+        error,
+      },
+    ];
+
+    const store = mockStore({
+      history: {
+        items: [],
+      },
+    });
+
+    return store.dispatch(actions.postUpload({}))
+      .then(() => {
+        expect(store.getActions()[0]).toEqual(expectedActions[0]);
+        expect(store.getActions()[1].type).toEqual(expectedActions[1].type);
+        expect(store.getActions()[1].error).toContain(error);
+      });
   });
 });

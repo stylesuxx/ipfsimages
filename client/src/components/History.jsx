@@ -64,6 +64,7 @@ const styles = theme => ({
   icons: {
     height: 67,
     width: 67,
+    color: 'rgba(0, 0, 0, 0.87)',
   },
   cardContent: {
     paddingBottom: '0px !important',
