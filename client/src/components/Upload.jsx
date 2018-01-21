@@ -12,10 +12,12 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
+import { CircularProgress } from 'material-ui/Progress';
 
-const styles = () => ({
+const styles = theme => ({
   flex: {
     flex: 1,
+    position: 'relative',
   },
   border: {
     marginBottom: -10,
@@ -33,14 +35,34 @@ const styles = () => ({
   error: {
     marginTop: -12,
   },
+  spinner: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(255, 255, 255, 0.75)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progress: {
+    margin: `0 ${theme.spacing.unit * 2}px`,
+  },
 });
 
 const Upload = ({
   classes,
   error,
   clearError,
+  disabled,
 }) => {
   const open = (error != null);
+  const spinner = disabled ? (
+    <div className={classes.spinner}>
+      <CircularProgress className={classes.progress} />
+    </div>
+  ) : '';
 
   return (
     <Grid container spacing={24}>
@@ -51,6 +73,7 @@ const Upload = ({
               <Typography type="headline" component="h2" className={classes.borderText}>
                 Drop an image here to upload it to the IPFS
               </Typography>
+              {spinner}
             </div>
           </CardContent>
         </Card>
@@ -84,6 +107,7 @@ Upload.defaultProps = {
 Upload.propTypes = {
   classes: PropTypes.shape().isRequired,
   clearError: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
   error: PropTypes.string,
 };
 
