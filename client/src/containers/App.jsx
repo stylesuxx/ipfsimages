@@ -29,6 +29,7 @@ const App = ({ upload, history, actions }) => (
       />
       <History
         history={history.items}
+        clear={actions.clearHistory}
       />
       <Cards />
       <Footer />
@@ -51,6 +52,7 @@ App.propTypes = {
   actions: PropTypes.shape({
     postUpload: PropTypes.func.isRequired,
     clearError: PropTypes.func.isRequired,
+    clearHistory: PropTypes.func.isRequired,
   }).isRequired,
 };
 

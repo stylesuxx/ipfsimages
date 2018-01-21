@@ -1,5 +1,6 @@
 import {
   UPLOAD_SUCCESS,
+  UPLOAD_CLEAR_HISTORY,
 } from '../constants/ActionTypes';
 
 const defaultState = {
@@ -32,6 +33,14 @@ const history = (state = defaultState, action) => {
       };
 
       next.items.unshift(upload);
+
+      return next;
+    }
+
+    case UPLOAD_CLEAR_HISTORY: {
+      const next = Object.assign({}, state);
+
+      next.items = [];
 
       return next;
     }

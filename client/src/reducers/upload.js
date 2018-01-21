@@ -8,7 +8,6 @@ import {
 const defaultState = {
   disabled: false,
   error: null,
-  last: false,
 };
 
 const upload = (state = defaultState, action) => {
@@ -18,7 +17,6 @@ const upload = (state = defaultState, action) => {
 
       next.disabled = true;
       next.error = null;
-      next.last = false;
 
       return next;
     }
@@ -28,7 +26,6 @@ const upload = (state = defaultState, action) => {
 
       next.error = action.error;
       next.disabled = true;
-      next.last = false;
 
       return next;
     }
@@ -37,7 +34,6 @@ const upload = (state = defaultState, action) => {
       const next = Object.assign({}, state);
 
       next.error = null;
-      next.last = false;
 
       return next;
     }
@@ -47,7 +43,6 @@ const upload = (state = defaultState, action) => {
 
       next.disabled = false;
       next.error = null;
-      next.last = true;
 
       return next;
     }

@@ -18,6 +18,10 @@ export const clearError = () => ({
   type: types.UPLOAD_CLEAR_ERROR,
 });
 
+export const clearHistory = () => ({
+  type: types.UPLOAD_CLEAR_HISTORY,
+});
+
 export const postUpload = file =>
   (dispatch) => {
     dispatch(upload());

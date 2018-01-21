@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Grid from 'material-ui/Grid';
+import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
@@ -72,6 +73,7 @@ const styles = theme => ({
 const History = ({
   classes,
   history,
+  clear,
 }) => {
   const historyItem = (hash, date, time, url) => (
     <Grid container spacing={24} key={hash}>
@@ -136,9 +138,21 @@ const History = ({
     const url = `https://ipfs.io/ipfs/${item.hash}`;
     return historyItem(item.hash, item.date, item.time, url);
   });
+  const clearHistoryButton = (history.length > 0) ? (
+    <Grid container spacing={24}>
+      <Grid item xs={12}>
+        <div className={classes.right}>
+          <Button raised onClick={clear}>
+            Clear Upload History
+          </Button>
+        </div>
+      </Grid>
+    </Grid>
+  ) : '';
 
   return (
     <div>
+      {clearHistoryButton}
       {historyItems}
     </div>
   );
@@ -151,6 +165,7 @@ History.propTypes = {
     time: PropTypes.string.isRequired,
     hash: PropTypes.string.isRequired,
   })).isRequired,
+  clear: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(History);
