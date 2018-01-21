@@ -8,6 +8,10 @@ const defaultState = {
       date: new Date(),
       hash: 'xxx, yyy, zzz',
     },
+    {
+      date: new Date('01 Jan 1970 00:00:00 GMT'),
+      hash: 'xxx, yyy, zzz',
+    },
   ],
 };
 
@@ -21,7 +25,7 @@ const history = (state = defaultState, action) => {
         hash: action.hash,
       };
 
-      next.history.append(upload);
+      next.items.push(upload);
 
       return next;
     }

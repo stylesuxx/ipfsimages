@@ -74,59 +74,63 @@ const History = ({
   history,
 }) => {
   const historyItem = (hash, date, time, url) => (
-    <Card key={hash} className={classes.content}>
-      <CardMedia
-        className={classes.image}
-        image={url}
-        title={`Image: ${hash}`}
-      />
-      <div className={classes.details}>
-        <CardContent className={classes.cardContent}>
-          <Typography className={classes.date}>{date} - {time}</Typography>
-          <Divider className={classes.divider} />
-          <TextField
-            className={classes.textFieldBase}
-            defaultValue={`https://ipfs.io/ipfs/${hash}`}
-            label="IPFS URL"
-            InputProps={{
-              disableUnderline: true,
-              classes: {
-                root: classes.textFieldRoot,
-                input: classes.textFieldInput,
-              },
-            }}
-            InputLabelProps={{
-              shrink: true,
-              className: classes.textFieldFormLabel,
-            }}
+    <Grid container spacing={24}>
+      <Grid item xs={12}>
+        <Card key={hash} className={classes.content}>
+          <CardMedia
+            className={classes.image}
+            image={url}
+            title={`Image: ${hash}`}
           />
-          <Divider className={classes.socialDivider} />
-          <div className={classes.right}>
-            <a
-              href={`https://plus.google.com/share?url=${url}`}
-              title="Share on Google+"
-              target="_blank"
-            >
-              <GoogleIcon className={classes.icons} />
-            </a>
-            <a
-              href={`https://twitter.com/home?status=Check out the image I just uploaded to the InterPlanetary File System: ${url}`}
-              title="Share on Twitter"
-              target="_blank"
-            >
-              <TwitterIcon className={classes.icons} />
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-              title="Share on Facebook"
-              target="_blank"
-            >
-              <FacebookIcon className={classes.icons} />
-            </a>
+          <div className={classes.details}>
+            <CardContent className={classes.cardContent}>
+              <Typography className={classes.date}>{date} - {time}</Typography>
+              <Divider className={classes.divider} />
+              <TextField
+                className={classes.textFieldBase}
+                defaultValue={`https://ipfs.io/ipfs/${hash}`}
+                label="IPFS URL"
+                InputProps={{
+                  disableUnderline: true,
+                  classes: {
+                    root: classes.textFieldRoot,
+                    input: classes.textFieldInput,
+                  },
+                }}
+                InputLabelProps={{
+                  shrink: true,
+                  className: classes.textFieldFormLabel,
+                }}
+              />
+              <Divider className={classes.socialDivider} />
+              <div className={classes.right}>
+                <a
+                  href={`https://plus.google.com/share?url=${url}`}
+                  title="Share on Google+"
+                  target="_blank"
+                >
+                  <GoogleIcon className={classes.icons} />
+                </a>
+                <a
+                  href={`https://twitter.com/home?status=Check out the image I just uploaded to the InterPlanetary File System: ${url}`}
+                  title="Share on Twitter"
+                  target="_blank"
+                >
+                  <TwitterIcon className={classes.icons} />
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                  title="Share on Facebook"
+                  target="_blank"
+                >
+                  <FacebookIcon className={classes.icons} />
+                </a>
+              </div>
+            </CardContent>
           </div>
-        </CardContent>
-      </div>
-    </Card>
+        </Card>
+      </Grid>
+    </Grid>
   );
   const historyItems = history.map((item) => {
     const date = `${item.date.getFullYear()}/${item.date.getMonth() + 1}/${item.date.getDate()}`;
@@ -134,12 +138,11 @@ const History = ({
     const url = 'http://www.slidesjs.com/img/example-slide-350-1.jpg';
     return historyItem(item.hash, date, time, url);
   });
-  const historyItemsWrapper = <Grid item xs={12}>{historyItems}</Grid>;
 
   return (
-    <Grid container spacing={24}>
-      {historyItemsWrapper}
-    </Grid>
+    <div>
+      {historyItems}
+    </div>
   );
 };
 
