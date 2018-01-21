@@ -24,3 +24,18 @@ it('has an image upload button', () => {
 
   expect(header.dive().find(Button)).toHaveLength(1);
 });
+
+it('should trigger function on change', () => {
+  const header = shallow((
+    <Header
+      disabled={false}
+      postUpload={() => false}
+    />
+  ));
+
+  header.dive().find('input').simulate('change', {
+    target: {
+      files: [{}],
+    },
+  });
+});
