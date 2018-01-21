@@ -101,7 +101,8 @@
       "src/**/*.{js,jsx}",
       "!src/index.js",
       "!src/index.jsx",
-      "!src/registerServiceWorker.js"
+      "!src/registerServiceWorker.js",
+      "!src/reducers/index.js"
     ]
   },
   "babel": {

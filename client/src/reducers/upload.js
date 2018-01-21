@@ -33,6 +33,7 @@ const upload = (state = defaultState, action) => {
     case UPLOAD_CLEAR_ERROR: {
       const next = Object.assign({}, state);
 
+      next.disabled = false;
       next.error = null;
 
       return next;
