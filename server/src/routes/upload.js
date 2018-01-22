@@ -24,7 +24,6 @@ router.post('/', upload.single('file'), (req, res) => {
 
   const maxSize = req.app.fileSize;
   const fileSize = req.file.size;
-  console.log(fileSize, maxSize);
   if (fileSize > maxSize) {
     fs.unlink(req.file.path);
 
