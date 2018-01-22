@@ -24,6 +24,7 @@ router.post('/', upload.single('file'), (req, res) => {
 
   const maxSize = req.app.fileSize;
   const fileSize = req.file.size;
+  console.log(fileSize, maxSize);
   if (fileSize > maxSize) {
     fs.unlink(req.file.path);
 
@@ -36,7 +37,7 @@ router.post('/', upload.single('file'), (req, res) => {
   // TODO: Upload to IPFS
   // ********************
 
-  const seconds = 5;
+  const seconds = 3;
   const waitTill = new Date(new Date().getTime() + (seconds * 1000));
   while (waitTill > new Date()) { /* */ }
 
