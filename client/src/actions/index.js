@@ -28,7 +28,7 @@ export const postUpload = file =>
     const formData = new FormData();
     formData.append('file', file);
 
-    return fetch('http://localhost:5000/upload', {
+    return fetch(`${process.env.API_URL}/upload`, {
       method: 'post',
       contentType: false,
       processData: false,

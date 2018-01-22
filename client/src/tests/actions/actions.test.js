@@ -61,7 +61,7 @@ describe('async actions', () => {
   });
 
   it('creates UPLOAD_SUCCESS after uploading valid image', () => {
-    fetchMock.postOnce('http://localhost:5000/upload', {
+    fetchMock.postOnce('undefined/upload', {
       headers: {
         'content-type': 'application/json',
       },
@@ -94,7 +94,7 @@ describe('async actions', () => {
 
   it('creates UPLOAD_ERROR after uploading invalid file', () => {
     const error = 'Error message';
-    fetchMock.postOnce('http://localhost:5000/upload', {
+    fetchMock.postOnce('undefined/upload', {
       headers: {
         'content-type': 'application/json',
       },
@@ -127,7 +127,7 @@ describe('async actions', () => {
 
   it('creates UPLOAD_ERROR after uploading did not return json', () => {
     const error = 'FetchError: invalid json response body';
-    fetchMock.postOnce('http://localhost:5000/upload', {
+    fetchMock.postOnce('undefined/upload', {
       headers: {
         'content-type': 'application/text',
       },
