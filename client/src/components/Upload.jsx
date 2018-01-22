@@ -8,6 +8,7 @@ import Dialog, {
   DialogTitle,
 } from 'material-ui/Dialog';
 import Grid from 'material-ui/Grid';
+import Dropzone from 'react-dropzone';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
@@ -49,6 +50,16 @@ const styles = theme => ({
   progress: {
     margin: `0 ${theme.spacing.unit * 2}px`,
   },
+  dropzone: {
+    position: 'absolute',
+    zIndex: 100,
+    background: 'transparent',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    borderRadius: 0,
+  },
 });
 
 const Upload = ({
@@ -56,12 +67,24 @@ const Upload = ({
   error,
   clearError,
   disabled,
+  postUpload,
 }) => {
+  const handleDropzone = (files) => {
+    postUpload(files[0]);
+  };
   const open = (error != null);
   const spinner = disabled ? (
     <div className={classes.spinner}>
       <CircularProgress className={classes.progress} />
     </div>
+  ) : '';
+  const dropzone = !disabled ? (
+    <Dropzone
+      className={classes.dropzone}
+      multiple={false}
+      onDrop={handleDropzone}
+      accept="image/*"
+    />
   ) : '';
 
   return (
@@ -73,6 +96,7 @@ const Upload = ({
               <Typography type="headline" component="h2" className={classes.borderText}>
                 Drop an image here to upload it to the IPFS
               </Typography>
+              {dropzone}
               {spinner}
             </div>
           </CardContent>
@@ -107,6 +131,7 @@ Upload.defaultProps = {
 Upload.propTypes = {
   classes: PropTypes.shape().isRequired,
   clearError: PropTypes.func.isRequired,
+  postUpload: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
   error: PropTypes.string,
 };

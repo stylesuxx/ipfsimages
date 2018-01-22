@@ -27,6 +27,7 @@ const App = ({ upload, history, actions }) => (
         error={upload.error}
         disabled={upload.disabled}
         clearError={actions.clearError}
+        postUpload={actions.postUpload}
       />
       <History
         history={history.items}
