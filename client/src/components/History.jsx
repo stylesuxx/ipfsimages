@@ -80,11 +80,17 @@ const History = ({
     <Grid container spacing={24} key={hash}>
       <Grid item xs={12}>
         <Card className={classes.content}>
-          <CardMedia
-            className={classes.image}
-            image={url}
-            title={`Image: ${hash}`}
-          />
+          <a
+            href={url}
+            title={hash}
+            target="_blank"
+          >
+            <CardMedia
+              className={classes.image}
+              image={url}
+              title={hash}
+            />
+          </a>
           <div className={classes.details}>
             <CardContent className={classes.cardContent}>
               <Typography className={classes.date}>{date} - {time}</Typography>
@@ -135,10 +141,12 @@ const History = ({
       </Grid>
     </Grid>
   );
+
   const historyItems = history.map((item) => {
     const url = `https://ipfs.io/ipfs/${item.hash}`;
     return historyItem(item.hash, item.date, item.time, url);
   });
+
   const clearHistoryButton = (history.length > 0) ? (
     <Grid container spacing={24}>
       <Grid item xs={12}>
