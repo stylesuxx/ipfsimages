@@ -6,4 +6,4 @@
 # testing
 /coverage
 
-/src/routes/uploads
+/src/routes/uploads/*
