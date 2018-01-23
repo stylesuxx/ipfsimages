@@ -202,7 +202,9 @@ module.exports = {
                   },
                 ],
               },
+              /* eslint-disable comma-dangle */
               extractTextPluginOptions
+              /* eslint-enable */
             )),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
