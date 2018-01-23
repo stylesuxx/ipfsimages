@@ -38,6 +38,9 @@ const styles = () => ({
   grow: {
     flexGrow: 1,
   },
+  link: {
+    textDecoration: 'none',
+  },
 });
 
 const Cards = ({ classes }) => (
@@ -63,7 +66,15 @@ const Cards = ({ classes }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense>Learn More</Button>
+          <a
+            className={classes.link}
+            href="https://ipfs.io"
+            title="Learn more about IPFS"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button dense>Learn More</Button>
+          </a>
         </CardActions>
       </Card>
     </Grid>
@@ -87,7 +98,15 @@ const Cards = ({ classes }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense>Visit on Github</Button>
+          <a
+            className={classes.link}
+            href="https://github.com/stylesuxx/ipfs-upload"
+            title="Check me out on Github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button dense>Visit on Github</Button>
+          </a>
         </CardActions>
       </Card>
     </Grid>

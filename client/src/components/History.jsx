@@ -84,6 +84,7 @@ const History = ({
             href={url}
             title={hash}
             target="_blank"
+            rel="noopener noreferrer"
           >
             <CardMedia
               className={classes.image}
@@ -117,6 +118,7 @@ const History = ({
                   href={`https://plus.google.com/share?url=${url}`}
                   title="Share on Google+"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <GoogleIcon className={classes.icons} />
                 </a>
@@ -124,6 +126,7 @@ const History = ({
                   href={`https://twitter.com/home?status=Check out the image I just uploaded to the InterPlanetary File System: ${url}`}
                   title="Share on Twitter"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <TwitterIcon className={classes.icons} />
                 </a>
@@ -131,6 +134,7 @@ const History = ({
                   href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
                   title="Share on Facebook"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FacebookIcon className={classes.icons} />
                 </a>

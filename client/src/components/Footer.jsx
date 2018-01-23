@@ -25,6 +25,9 @@ const styles = () => ({
     marginRight: -5,
     marginBottom: -1,
   },
+  link: {
+    color: 'rgba(0, 0, 0, 0.87);',
+  },
 });
 
 const Footer = ({ classes }) => (
@@ -34,7 +37,7 @@ const Footer = ({ classes }) => (
         <CardContent className={classes.equal}>
           <div className={classes.adjust}>
             <Typography component="footer" className={classes.center}>
-              Made with <Favorite className={classes.icon} />, <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a>, <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>, <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">Redux</a> and <a href="https://material-ui-next.com" target="_blank" rel="noopener noreferrer">Material UI</a> - &copy; 2018 by <a href="mailto:stylesuxx@gmail.com">sylesuxx</a>
+              Made with <Favorite className={classes.icon} />, <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer" className={classes.link}>IPFS</a>, <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer" className={classes.link}>React</a>, <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer" className={classes.link}>Redux</a> and <a href="https://material-ui-next.com" target="_blank" rel="noopener noreferrer" className={classes.link}>Material UI</a> - &copy; 2018 by <a href="mailto:stylesuxx@gmail.com" className={classes.link}>sylesuxx</a>
             </Typography>
           </div>
         </CardContent>
