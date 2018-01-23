@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Upload from '../components/Upload';
 import Footer from '../components/Footer';
 import Cards from '../components/Cards';
+import Info from '../components/Info';
 
 import * as appActions from '../actions/';
 
@@ -23,6 +24,7 @@ const App = ({ upload, history, actions }) => (
       style={{ padding: 12, marginTop: 64 }}
       className="container"
     >
+      <Info />
       <Upload
         error={upload.error}
         disabled={upload.disabled}
