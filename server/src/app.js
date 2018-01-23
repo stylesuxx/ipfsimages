@@ -6,7 +6,6 @@ import express from 'express';
 import logger from 'morgan';
 import path from 'path';
 
-import index from './routes/index';
 import upload from './routes/upload';
 
 const app = express();
@@ -30,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', index);
+app.use(express.static('public'));
 app.use('/upload', upload);
 
 // catch 404 and forward to error handler
