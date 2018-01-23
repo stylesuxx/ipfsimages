@@ -74,6 +74,7 @@ function getClientEnvironment(publicUrl) {
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
         API_URL: process.env.API_URL || 'http://localhost:5000',
+        GATEWAY_URL: process.env.GATEWAY_URL || 'https://ipfs.io/ipfs',
         /* eslint-disable comma-dangle */
       }
       /* eslint-enable */

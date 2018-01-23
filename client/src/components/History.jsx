@@ -97,7 +97,7 @@ const History = ({
               <Divider className={classes.divider} />
               <TextField
                 className={classes.textFieldBase}
-                defaultValue={`https://ipfs.io/ipfs/${hash}`}
+                defaultValue={url}
                 label="IPFS URL"
                 InputProps={{
                   disableUnderline: true,
@@ -143,7 +143,7 @@ const History = ({
   );
 
   const historyItems = history.map((item) => {
-    const url = `https://ipfs.io/ipfs/${item.hash}`;
+    const url = `${process.env.GATEWAY_URL}/${item.hash}`;
     return historyItem(item.hash, item.date, item.time, url);
   });
 
