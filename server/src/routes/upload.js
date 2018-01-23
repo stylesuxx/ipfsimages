@@ -1,8 +1,25 @@
+import ipfsAPI from 'ipfs-api';
 import express from 'express';
 import multer from 'multer';
+import path from 'path';
 import fs from 'fs';
 
-const upload = multer({ dest: 'uploads' });
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, path.join(__dirname, 'uploads'));
+  },
+  filename(req, file, cb) {
+    cb(null, `${Date.now()}.${file.mimetype.split('/')[1]}`);
+  },
+});
+
+const upload = multer({ storage });
+
+const ipfs = ipfsAPI({
+  host: 'localhost',
+  port: 5001,
+  protocol: 'http',
+});
 
 const router = express.Router();
 
@@ -32,17 +49,18 @@ router.post('/', upload.single('file'), (req, res) => {
     });
   }
 
-  // ********************
-  // TODO: Upload to IPFS
-  // ********************
+  const data = fs.readFileSync(req.file.path);
+  return ipfs.add(data, (err, files) => {
+    fs.unlink(req.file.path);
+    if (files) {
+      return res.json({
+        hash: files[0].hash,
+      });
+    }
 
-  const seconds = 3;
-  const waitTill = new Date(new Date().getTime() + (seconds * 1000));
-  while (waitTill > new Date()) { /* */ }
-
-  fs.unlink(req.file.path);
-  return res.json({
-    hash: req.file.filename,
+    return res.status(500).json({
+      error: err,
+    });
   });
 });
 
