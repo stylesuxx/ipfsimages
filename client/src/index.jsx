@@ -6,7 +6,7 @@ import { load, save } from 'redux-localstorage-simple';
 import { compose, createStore, applyMiddleware } from 'redux';
 
 import './index.css';
-import App from './containers/App';
+import App from './components/App';
 import IpfsFileUpload from './reducers/';
 import registerServiceWorker from './registerServiceWorker';
 
