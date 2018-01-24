@@ -13,13 +13,6 @@ const styles = () => ({
   adjust: {
     marginBottom: -10,
   },
-  center: {
-    /*
-    textAlign: 'center',
-    fontSize: 12,
-    fontWeight: 500,
-    */
-  },
   icon: {
     height: 12,
     marginLeft: -5,
@@ -40,18 +33,18 @@ const Info = ({ classes }) => (
             <Typography component="h2" type="headline">
               Upload your images to the <em>InterPlanetary File System:</em>
             </Typography>
-            <Typography component="p" className={classes.center}>
+            <Typography component="div">
               <ol>
                 <li>
-                  <strong>Drop your image</strong> in the area <strong>below</strong>
-                  or click the button in the top right to select an image from your computer.
+                  <strong>Drop your image</strong> in the area <strong>below</strong> or
+                  click the button in the top right to select an image from your computer.
                 </li>
                 <li>
                   <strong>Wait for</strong> the image to <strong>upload</strong>.
                 </li>
                 <li>
                   <strong>Copy</strong> your image <strong>url</strong> or
-                  <strong>share</strong> directly <strong>on social media</strong>.
+                  <strong> share</strong> directly <strong>on social media</strong>.
                 </li>
               </ol>
             </Typography>
