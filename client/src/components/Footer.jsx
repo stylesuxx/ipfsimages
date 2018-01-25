@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Grid from 'material-ui/Grid';
+import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardContent } from 'material-ui/Card';
-import Favorite from 'material-ui-icons/Favorite';
+import Favorite from 'mdi-material-ui/Heart';
+import Grid from 'material-ui/Grid';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = () => ({
   flex: {
@@ -37,7 +36,46 @@ const Footer = ({ classes }) => (
         <CardContent className={classes.equal}>
           <div className={classes.adjust}>
             <Typography component="footer" className={classes.center}>
-              Made with <Favorite className={classes.icon} />, <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer" className={classes.link}>IPFS</a>, <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer" className={classes.link}>React</a>, <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer" className={classes.link}>Redux</a> and <a href="https://material-ui-next.com" target="_blank" rel="noopener noreferrer" className={classes.link}>Material UI</a> - &copy; 2018 by <a href="mailto:stylesuxx@gmail.com" className={classes.link}>sylesuxx</a>
+              Made with <Favorite className={classes.icon} />,&nbsp;
+              <a
+                href="https://ipfs.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.link}
+              >
+                IPFS
+              </a>,&nbsp;
+              <a
+                href="https://reactjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.link}
+              >
+                React
+              </a>,&nbsp;
+              <a
+                href="https://redux.js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.link}
+              >
+                Redux
+              </a> and&nbsp;
+              <a
+                href="https://material-ui-next.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.link}
+              >
+                Material UI
+              </a>&nbsp;
+              - &copy; 2018 by&nbsp;
+              <a
+                href="mailto:stylesuxx@gmail.com"
+                className={classes.link}
+              >
+                sylesuxx
+              </a>
             </Typography>
           </div>
         </CardContent>

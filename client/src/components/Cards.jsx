@@ -66,15 +66,9 @@ const Cards = ({ classes }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <a
-            className={classes.link}
-            href="https://ipfs.io"
-            title="Learn more about IPFS"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button dense>Learn More</Button>
-          </a>
+          <form target="_blank" method="get" action="https://ipfs.io">
+            <Button type="submit" dense title="Learn more about IPFS">Learn More</Button>
+          </form>
         </CardActions>
       </Card>
     </Grid>
@@ -98,15 +92,9 @@ const Cards = ({ classes }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <a
-            className={classes.link}
-            href="https://github.com/stylesuxx/ipfs-upload"
-            title="Check me out on Github"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button dense>Visit on Github</Button>
-          </a>
+          <form target="_blank" method="get" action="https://github.com/stylesuxx/ipfs-upload">
+            <Button type="submit" dense title="Check me out on Github">Visit on Github</Button>
+          </form>
         </CardActions>
       </Card>
     </Grid>

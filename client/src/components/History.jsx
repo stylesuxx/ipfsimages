@@ -123,7 +123,7 @@ const History = ({
                   <GoogleIcon className={classes.icons} />
                 </a>
                 <a
-                  href={`https://twitter.com/home?status=Check out the image I just uploaded to the InterPlanetary File System: ${url}`}
+                  href={`https://twitter.com/home?status=Check+out+the+image+I+just+uploaded+to+the+InterPlanetary+File+System:+${url}`}
                   title="Share on Twitter"
                   target="_blank"
                   rel="noopener noreferrer"

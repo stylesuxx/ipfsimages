@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  padding: 12px;
+  margin-top: 64px;
+}
+
 @media screen and (max-width: 959px) {
   .container {
     width: 100%;

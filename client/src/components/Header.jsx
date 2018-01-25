@@ -25,7 +25,7 @@ const Header = ({ classes, disabled, postUpload }) => {
   }
 
   return (
-    <AppBar postition="static" color="default">
+    <AppBar color="default">
       <Toolbar>
         <Typography type="title" color="inherit" className={classes.flex}>
          IPFS Image Upload
