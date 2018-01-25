@@ -65,8 +65,9 @@ Now you can start the server as described above and the client will be served fr
 
 ### ENV Variables
 The following *env* variables are available while running or building the client:
-* ```API_URL="http://localhost:5000"```
-* ```GATEWAY_URL="https://ipfs.io/ipfs"```
+* ```API_URL="http://localhost:5000"``` API URL
+* ```GATEWAY_URL="https://ipfs.io/ipfs"``` Gateway URL
+* ```GA="UA-xxxx08xxx-1"``` Google Analytics Tracking-ID
 
 ### Running Tests
 To run all the tests, including Coverage, run:
