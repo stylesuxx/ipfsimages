@@ -98,7 +98,7 @@ const Cards = ({ classes }) => (
           </Typography>
         </CardContent>
         <CardActions>
-          <form target="_blank" method="get" action="https://github.com/stylesuxx/ipfs-upload">
+          <form target="_blank" method="get" action="https://github.com/stylesuxx/ipfsimages">
             <Button
               dense
               type="submit"
