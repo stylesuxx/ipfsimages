@@ -43,7 +43,7 @@ This will also open the URL of the client in a new tab in your browser. Changes 
 ### Build
 To build an application package ready for deployment, simply run:
 
-````yarn build```
+```yarn build```
 
 This will build all necessary files in the *build* directory which then can be served directly bu installing *serve* globally and running it:
 
