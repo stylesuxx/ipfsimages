@@ -30,8 +30,6 @@ export const postUpload = file =>
 
     return fetch(`${process.env.API_URL}/upload`, {
       method: 'post',
-      contentType: 'multipart/form-data',
-      processData: false,
       body: formData,
     })
       .then(response => response.json())
