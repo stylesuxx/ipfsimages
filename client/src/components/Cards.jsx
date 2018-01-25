@@ -67,7 +67,13 @@ const Cards = ({ classes }) => (
         </CardContent>
         <CardActions>
           <form target="_blank" method="get" action="https://ipfs.io">
-            <Button type="submit" dense title="Learn more about IPFS">Learn More</Button>
+            <Button
+              dense
+              type="submit"
+              title="Learn more about IPFS"
+            >
+              Learn More
+            </Button>
           </form>
         </CardActions>
       </Card>
@@ -93,7 +99,13 @@ const Cards = ({ classes }) => (
         </CardContent>
         <CardActions>
           <form target="_blank" method="get" action="https://github.com/stylesuxx/ipfs-upload">
-            <Button type="submit" dense title="Check me out on Github">Visit on Github</Button>
+            <Button
+              dense
+              type="submit"
+              title="Check me out on Github"
+            >
+              Visit on Github
+            </Button>
           </form>
         </CardActions>
       </Card>
