@@ -74,7 +74,7 @@ const Footer = ({ classes }) => (
                 href="mailto:stylesuxx@gmail.com"
                 className={classes.link}
               >
-                sylesuxx
+                stylesuxx
               </a>
             </Typography>
           </div>
