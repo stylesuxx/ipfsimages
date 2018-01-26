@@ -1,16 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Grid from 'material-ui/Grid';
-import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
+import Grid from 'material-ui/Grid';
+import PropTypes from 'prop-types';
+import Card, {
+  CardActions,
+  CardContent,
+  CardMedia,
+} from 'material-ui/Card';
+import React from 'react';
 
+import githubLogo from '../images/github-logo.png';
 import ipfsLogo from '../images/ipfs-logo.svg';
 import easyLogo from '../images/easy-logo.png';
-import githubLogo from '../images/github-logo.png';
 
 const styles = () => ({
   fullHeight: {

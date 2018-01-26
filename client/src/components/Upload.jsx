@@ -1,19 +1,18 @@
-import React from 'react';
+import { CircularProgress } from 'material-ui/Progress';
+import Card, { CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import Dropzone from 'react-dropzone';
+import Grid from 'material-ui/Grid';
 import PropTypes from 'prop-types';
-
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
-import Grid from 'material-ui/Grid';
-import Dropzone from 'react-dropzone';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardContent } from 'material-ui/Card';
-import { CircularProgress } from 'material-ui/Progress';
+import React from 'react';
 
 const styles = theme => ({
   flex: {

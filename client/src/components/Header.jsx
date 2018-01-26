@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Button from 'material-ui/Button';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
+import Toolbar from 'material-ui/Toolbar';
+import Button from 'material-ui/Button';
+import AppBar from 'material-ui/AppBar';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = theme => ({
   flex: {
@@ -13,6 +12,7 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
+    marginRight: 0,
   },
   input: {
     display: 'none',
@@ -51,10 +51,6 @@ const Header = ({ classes, disabled, postUpload }) => {
       </Toolbar>
     </AppBar>
   );
-};
-
-Header.defaultProps = {
-
 };
 
 Header.propTypes = {

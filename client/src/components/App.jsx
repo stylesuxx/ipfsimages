@@ -1,3 +1,4 @@
+import { withStyles } from 'material-ui/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -14,16 +15,35 @@ import * as appActions from '../actions/';
 
 require('typeface-roboto');
 
-const App = ({ upload, history, actions }) => (
+const containerResponsive = (window.screen.availableWidth < 960) ?
+  {
+    width: 'calc(100% - 24px)',
+    padding: 12,
+    marginTop: 64,
+  } :
+  {
+    width: 900,
+    margin: 'auto',
+    padding: 12,
+    marginTop: 64,
+  };
+
+const styles = () => ({
+  container: containerResponsive,
+});
+
+const App = ({
+  classes,
+  upload,
+  history,
+  actions,
+}) => (
   <div className="App">
     <Header
       disabled={upload.disabled}
       postUpload={actions.postUpload}
     />
-    <div
-      style={{ padding: 12, marginTop: 64 }}
-      className="container"
-    >
+    <div className={classes.container}>
       <Info />
       <Upload
         error={upload.error}
@@ -42,6 +62,7 @@ const App = ({ upload, history, actions }) => (
 );
 
 App.propTypes = {
+  classes: PropTypes.shape().isRequired,
   upload: PropTypes.shape({
     disabled: PropTypes.bool.isRequired,
     error: PropTypes.string,
@@ -72,4 +93,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(withStyles(styles)(App));

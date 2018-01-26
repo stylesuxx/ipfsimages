@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardContent } from 'material-ui/Card';
+import Grid from 'material-ui/Grid';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Card, {
+  CardContent,
+} from 'material-ui/Card';
 
 const styles = () => ({
   flex: {
