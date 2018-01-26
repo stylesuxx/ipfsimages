@@ -86,7 +86,7 @@ const History = ({
   clear,
 }) => {
   const historyItem = (hash, date, time, url) => (
-    <Grid container spacing={24} key={hash}>
+    <Grid container spacing={24} key={hash + date + time}>
       <Grid item xs={12}>
         <Card className={classes.content}>
           <a
