@@ -1,6 +1,7 @@
 import FacebookIcon from 'mdi-material-ui/FacebookBox';
 import GoogleIcon from 'mdi-material-ui/GooglePlusBox';
 import TwitterIcon from 'mdi-material-ui/TwitterBox';
+import CopyIcon from 'mdi-material-ui/ContentCopy';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
@@ -55,6 +56,7 @@ const styles = theme => ({
       borderColor: '#80bdff',
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
     },
+    paddingRight: 33,
   },
   textFieldBase: {
     width: '100%',
@@ -77,6 +79,24 @@ const styles = theme => ({
   },
   cardContent: {
     paddingBottom: '0px !important',
+    position: 'relative',
+  },
+  copy: {
+    minWidth: 'auto',
+    padding: 0,
+    verticalAlign: 'top',
+    position: 'absolute',
+    top: 78,
+    right: 17,
+    zIndex: 100,
+  },
+  copyIcon: {
+    height: 30,
+    width: 30,
+    paddingLeft: 3,
+    paddingTop: 4,
+    paddingBottom: 5,
+    color: 'rgba(0, 0, 0, 0.87)',
   },
 });
 
@@ -85,6 +105,15 @@ const History = ({
   history,
   clear,
 }) => {
+  const handleCopy = (e) => {
+    e.preventDefault();
+
+    const input = e.currentTarget.parentNode.getElementsByTagName('input')[0];
+    input.select();
+
+    document.execCommand('copy');
+  };
+
   const historyItem = (hash, date, time, url) => (
     <Grid container spacing={24} key={hash + date + time}>
       <Grid item xs={12}>
@@ -104,6 +133,14 @@ const History = ({
           <div className={classes.details}>
             <CardContent className={classes.cardContent}>
               <Typography className={classes.date}>{date} - {time}</Typography>
+              <Button
+                title="Copy link to clipboard"
+                link={url}
+                className={classes.copy}
+                onClick={handleCopy}
+              >
+                <CopyIcon className={classes.copyIcon} />
+              </Button>
               <Divider className={classes.divider} />
               <TextField
                 className={classes.textFieldBase}
