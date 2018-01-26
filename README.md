@@ -45,7 +45,7 @@ To build an application package ready for deployment, simply run:
 
 ```yarn build```
 
-This will build all necessary files in the *build* directory which then can be served directly bu installing *serve* globally and running it:
+This will build all necessary files in the *build* directory which then can be served directly by installing *serve* globally and running it:
 
 ```
 yarn global add serve
