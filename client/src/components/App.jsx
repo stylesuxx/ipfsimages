@@ -22,7 +22,8 @@ const styles = theme => ({
     marginTop: 64,
     [theme.breakpoints.up('md')]: {
       width: 900,
-      margin: 'auto',
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
   },
 });
