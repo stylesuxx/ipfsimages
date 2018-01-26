@@ -48,7 +48,7 @@ const styles = () => ({
 
 const Cards = ({ classes }) => (
   <Grid container spacing={24}>
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} sm={4} md={4}>
       <Card className={classes.fullHeight}>
         <CardMedia
           className={classes.ipfsLogo}
@@ -81,7 +81,7 @@ const Cards = ({ classes }) => (
         </CardActions>
       </Card>
     </Grid>
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} sm={4} md={4}>
       <Card className={classes.fullHeight}>
         <div className={classes.githubBackground}>
           <CardMedia
@@ -113,7 +113,7 @@ const Cards = ({ classes }) => (
         </CardActions>
       </Card>
     </Grid>
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} sm={4} md={4}>
       <Card className={classes.fullHeight}>
         <div className={classes.easyBackground}>
           <CardMedia

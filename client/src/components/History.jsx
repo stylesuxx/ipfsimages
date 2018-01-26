@@ -21,10 +21,17 @@ const styles = theme => ({
   },
   content: {
     display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+    },
   },
   image: {
-    width: 200,
     height: 200,
+    width: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      width: 200,
+    },
   },
   details: {
     flex: 1,

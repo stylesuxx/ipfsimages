@@ -15,21 +15,16 @@ import * as appActions from '../actions/';
 
 require('typeface-roboto');
 
-const containerResponsive = (window.screen.availableWidth < 960) ?
-  {
+const styles = theme => ({
+  container: {
     width: 'calc(100% - 24px)',
     padding: 12,
     marginTop: 64,
-  } :
-  {
-    width: 900,
-    margin: 'auto',
-    padding: 12,
-    marginTop: 64,
-  };
-
-const styles = () => ({
-  container: containerResponsive,
+    [theme.breakpoints.up('md')]: {
+      width: 900,
+      margin: 'auto',
+    },
+  },
 });
 
 const App = ({
