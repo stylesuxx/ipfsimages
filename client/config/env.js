@@ -75,7 +75,7 @@ function getClientEnvironment(publicUrl) {
         PUBLIC_URL: publicUrl,
         API_URL: process.env.API_URL || 'http://localhost:5000',
         GATEWAY_URL: process.env.GATEWAY_URL || 'https://ipfs.io/ipfs',
-        GA: process.env.GATEWAY_URL || 'UA-xxxx08xxx-1',
+        GA: process.env.GA || 'UA-xxxx08xxx-1',
         /* eslint-disable comma-dangle */
       }
       /* eslint-enable */
